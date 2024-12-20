@@ -42,8 +42,17 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'users',
+    'rest_framework_simplejwt'
 ]
-
+# Authentication Classes
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # This will require the user to be authenticated by default
+    ),
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
